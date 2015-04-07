@@ -1,77 +1,59 @@
 <?php
 require_once "../../../lib/mercadopago.php";
- 
-$mp = new MP('YOUR_CLIENT_ID', 'YOUR_CLIENT_SECRET');
 
+$mp = new MP('1423295732402576', '4ZmFVGioagCm9DqfVnDaXdyTUP75nLX2');
 $preference_data = array(
 	"items" => array(
 		array(
-			"id" => "Code",
-			"title" => "Title of what you are paying for",
-			"currency_id" => "USD",
-			"picture_url" =>"https://www.mercadopago.com/org-img/MP3/home/logomp3.gif",
-			"description" => "Description",
-			"category_id" => "Category",
-			"quantity" => 1,
-			"unit_price" => 10.2
+			"id" => "9789",
+			"title" => "ITEM_FOGO",
+			"currency_id" => "BRL",
+			"description" => "Teste",
+			"category_id" => "Bala",
+			"quantity" => 3,
+			"unit_price" => 1
 		)
 	),
 	"payer" => array(
-		"name" => "user-name",
-		"surname" => "user-surname",
-		"email" => "user@email.com",
-		"date_created" => "2014-07-28T09:50:37.521-04:00",
+		"name" => "Bruno",
+		"surname" => "Geronimo da Silva",
+		"email" => "geronimo.bruno@gmail.com",
+		"date_created" => "2015-03-27T15:24:00.521-03:00",
 		"phone" => array(
 			"area_code" => "11",
-			"number" => "4444-4444"
+			"number" => "43116673"
 		),
 		"identification" => array(
-			"type" => "DNI",
-			"number" => "12345678"
+			"type" => "CPF",
+			"number" => "412.609.808-98"
 		),
 		"address" => array(
-			"street_name" => "Street",
-			"street_number" => 123,
-			"zip_code" => "1430"
+			"street_name" => "Rua teste",
+			"street_number" => 627,
+			"zip_code" => "03454030"
 		)
 	),
 	"back_urls" => array(
-		"success" => "https://www.success.com",
-		"failure" => "http://www.failure.com",
-		"pending" => "http://www.pending.com"
+		"success" => "https://pennatec.websiteseguro.com/teste/retornoMp.php",
+		"failure" => "https://pennatec.websiteseguro.com/teste/retornoMp.php",
+		"pending" => "https://pennatec.websiteseguro.com/teste/retornoMp.php"
 	),
 	"auto_return" => "approved",
-	"payment_methods" => array(
-		"excluded_payment_methods" => array(
-			array(
-				"id" => "amex",
-			)
-		),
-		"excluded_payment_types" => array(
-			array(
-				"id" => "ticket"
-			)
-		),
-		"installments" => 24,
-		"default_payment_method_id" => null,
-		"default_installments" => null,
-	),
 	"shipments" => array(
 		"receiver_address" => array(
-			"zip_code" => "1430",
-			"street_number"=> 123,
-			"street_name"=> "Street",
-			"floor"=> 4,
-			"apartment"=> "C"
+			"zip_code" => "03454030",
+			"street_number"=> 205,
+			"street_name"=> "Rua Natal Meira de Barros",
+			"floor"=> 2,
+			"apartment"=> "24A"
 		)
 	),
-	"notification_url" => "https://www.your-site.com/ipn",
-	"external_reference" => "Reference_1234",
+	"notification_url" => "https://pennatec.websiteseguro.com/teste/retornoMp.php",
+	"external_reference" => "SOINJECAO",
 	"expires" => false,
 	"expiration_date_from" => null,
 	"expiration_date_to" => null
 );
-
 $preference = $mp->create_preference($preference_data);
 ?>
 
